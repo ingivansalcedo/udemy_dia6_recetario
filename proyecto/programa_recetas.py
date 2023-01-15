@@ -1,7 +1,11 @@
 from pathlib import Path
 
 def saludo_bienvenida():
-    return ('Bienvenid@ al administrador de Recetas')
+    print ('Bienvenid@ al administrador de Recetas')
+    print (f"Ruta de acceso a sus recetas: {ruta_acceso()}")
+    print (f"Cantidad de recetas: {numero_recetas(ruta_acceso())}")
+    print ("Seleccione alguna de las siguientes opciones: ")
+    generar_menu()
 
 def ruta_acceso():
     home = Path.home()
@@ -15,10 +19,46 @@ def numero_recetas(ruta):
         recetas += 1
     return recetas
 
-ruta = ruta_acceso()
-opcion = 1
 
-print (saludo_bienvenida())
-print (f"Ruta de acceso a sus recetas: {ruta}")
-print (f"Cantidad de recetas: {numero_recetas(ruta)}")
-print ("Seleccione alguna de las siguientes opciones: ")
+def menu(opcion):
+    match opcion:
+        case '1':
+            print("Opcion 1")
+        case '2':
+            print("Opcion 2")
+        case '3':
+            print("Opcion 3")
+        case '4':
+            print("Opcion 4")
+        case '5':
+            print("Opcion 5")
+        case '6':
+            print("Opcion Salir")
+        case _:
+            print("Opcion Incorrecta")
+
+def lista_menu_principal():
+    opciones = {
+        '1': 'Leer Receta',
+        '2': 'Crear Receta',
+        '3': 'Crear Categoría',
+        '4': 'Eliminar Receta',
+        '5': 'Eliminar Categoría',
+        '6': 'Salir'
+    }
+
+    imprimir_lista_menu_principal(opciones)
+
+def imprimir_lista_menu_principal(opciones):
+    for opcion, nombre_opcion in opciones.items():
+        print (f"{opcion} -> {nombre_opcion}")
+
+def generar_menu():
+    opcion = None
+    while opcion != '6':
+        lista_menu_principal()
+        opcion = input("Seleccione una opción: ")
+        menu(opcion)
+
+if __name__ == '__main__':
+    saludo_bienvenida()
