@@ -1,11 +1,12 @@
 from pathlib import Path
+from os import system
 
 def saludo_bienvenida():
     print ('Bienvenid@ al administrador de Recetas')
     print (f"Ruta de acceso a sus recetas: {ruta_acceso()}")
     print (f"Cantidad de recetas: {numero_recetas(ruta_acceso())}")
-    print ("Seleccione alguna de las siguientes opciones: ")
-    generar_menu()
+    print ("Seleccione alguna de las siguientes opciones:\n")
+
 
 def ruta_acceso():
     home = Path.home()
@@ -56,9 +57,12 @@ def imprimir_lista_menu_principal(opciones):
 def generar_menu():
     opcion = None
     while opcion != '6':
+        saludo_bienvenida()
         lista_menu_principal()
-        opcion = input("Seleccione una opción: ")
+        opcion = input("\nSeleccione una opción: ")
         menu(opcion)
+        input("")
+        system('cls')
 
 if __name__ == '__main__':
-    saludo_bienvenida()
+    generar_menu()
