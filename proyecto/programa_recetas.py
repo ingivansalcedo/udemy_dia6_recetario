@@ -1,5 +1,8 @@
 from pathlib import Path
 from os import system
+from funciones_locales.funciones import *
+from leer_receta import generar_menu_recetas
+
 
 def saludo_bienvenida():
     print ('Bienvenid@ al administrador de Recetas')
@@ -7,24 +10,10 @@ def saludo_bienvenida():
     print (f"Cantidad de recetas: {numero_recetas(ruta_acceso())}")
     print ("Seleccione alguna de las siguientes opciones:\n")
 
-
-def ruta_acceso():
-    home = Path.home()
-    carpeta = 'Recetas'
-    ruta = Path(home,carpeta)
-    return ruta
-
-def numero_recetas(ruta):
-    recetas = 0
-    for txt in Path(ruta).glob('**/*.txt'):
-        recetas += 1
-    return recetas
-
-
 def menu(opcion):
     match opcion:
         case '1':
-            print("Opcion 1")
+            generar_menu_recetas()
         case '2':
             print("Opcion 2")
         case '3':
@@ -48,13 +37,9 @@ def lista_menu_principal():
         '6': 'Salir'
     }
 
-    imprimir_lista_menu_principal(opciones)
+    imprimir_menu_opciones(opciones)
 
-def imprimir_lista_menu_principal(opciones):
-    for opcion, nombre_opcion in opciones.items():
-        print (f"{opcion} -> {nombre_opcion}")
-
-def generar_menu():
+def generar_menu_principal():
     opcion = None
     while opcion != '6':
         saludo_bienvenida()
@@ -65,4 +50,4 @@ def generar_menu():
         system('cls')
 
 if __name__ == '__main__':
-    generar_menu()
+    generar_menu_principal()
