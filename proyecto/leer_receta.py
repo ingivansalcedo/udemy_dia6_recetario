@@ -10,7 +10,7 @@ def opcionesCorrectas(lista,n):
     return opcioncorrecta
 
 def LeerRecetas():
-    system('cls')
+    LimpiarPantalla()
     print ("\n CATEGORIA DE RECETAS \n")
     opcion = None
     ruta = ruta_acceso()
@@ -30,11 +30,11 @@ def LeerRecetas():
         
         if opcion == str(len(opcionesCorrectas(numero_opciones_categoria,0))):
             print ("Hola")
-            system('cls')
+            LimpiarPantalla()
         elif opcion in opcionesCorrectas(numero_opciones_categoria,2):
             ruta_categoria_seleccionada = Path(ruta, categorias[opcion])
             recetas = ListarRecetas(ruta_categoria_seleccionada)
-            system('cls')
+            LimpiarPantalla()
             print (f"Estas son las recetas que tiene la categoría {ruta_categoria_seleccionada.name.upper()}\n")
             imprimir_menu_opciones(recetas)
             opcion = input("\nSeleccione una opción: ")
@@ -45,10 +45,10 @@ def LeerRecetas():
             else:
                 print ("Opción incorrecta")
                 input("")
-                system('cls')
+                LimpiarPantalla()
         else:
             print ("Opcion Incorrecta")
             input("")
-            system('cls')
+            LimpiarPantalla()
         
-        system('cls')
+        LimpiarPantalla()

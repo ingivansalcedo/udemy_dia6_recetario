@@ -1,5 +1,12 @@
 from pathlib import Path
 from os import system
+from sysconfig import sys
+
+def PlataformaSistemaOperativo():
+    if sys.platform.startswith('win32'):
+        return ('Windows')
+    elif sys.platform.startswith('linux'):
+        return ('Linux')
 
 def ruta_acceso():
     home = Path.home()
@@ -38,3 +45,9 @@ def ListarCategorias(ruta):
 def imprimirReceta(ruta, nombre_receta):
     ruta_completa = Path(ruta,nombre_receta)
     print(ruta_completa.read_text())
+
+def LimpiarPantalla():
+    if PlataformaSistemaOperativo() == 'Windows':
+        return system('cls')
+    else:
+        return system('clear') 

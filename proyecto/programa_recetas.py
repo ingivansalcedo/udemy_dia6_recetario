@@ -3,7 +3,6 @@ from os import system
 from funciones_locales.funciones import *
 from leer_receta import LeerRecetas
 
-
 def saludo_bienvenida():
     print ('Bienvenid@ al administrador de Recetas')
     print (f"Ruta de acceso a sus recetas: {ruta_acceso()}")
@@ -46,7 +45,7 @@ def generar_menu_principal():
         lista_menu_principal()
         opcion = input("\nSeleccione una opción: ")
         menu(opcion)
-        system('cls')
+        LimpiarPantalla()
 
 if __name__ == '__main__':
     generar_menu_principal()
