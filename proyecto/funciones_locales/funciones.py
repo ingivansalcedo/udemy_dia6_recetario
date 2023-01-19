@@ -32,10 +32,9 @@ def ListarCategorias(ruta):
         if carpeta.is_dir():
             contar +=1
             lista_carpetas[str(contar)] = carpeta.name
-    lista_carpetas[str(contar+1)] = 'Regresar al menú principal'
-    lista_carpetas[str(contar+2)] = 'Salir'
+    lista_carpetas[str(contar+1)] = 'Regresar al menú anterior'
     return lista_carpetas
 
-def leerReceta(ruta, nombre_receta):
+def imprimirReceta(ruta, nombre_receta):
     ruta_completa = Path(ruta,nombre_receta)
     print(ruta_completa.read_text())

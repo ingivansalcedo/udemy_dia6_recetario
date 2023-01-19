@@ -9,7 +9,9 @@ def opcionesCorrectas(lista,n):
         opcioncorrecta.append(str(op+1))
     return opcioncorrecta
 
-def generar_menu_recetas():
+def LeerRecetas():
+    system('cls')
+    print ("\n CATEGORIA DE RECETAS \n")
     opcion = None
     ruta = ruta_acceso()
     categorias = ListarCategorias(ruta)
@@ -21,31 +23,32 @@ def generar_menu_recetas():
     # print(len(opcionesCorrectas(numero_opciones_categoria,0)))
 
     while opcion != str(len(opcionesCorrectas(numero_opciones_categoria,0))):
+
         imprimir_menu_opciones(categorias)
         opcion = input("\nSeleccione una opción: ")
         #Funcion para imprimir lista de recetas de la carpeta seleccionada y 
         
-        if opcion == str(len(opcionesCorrectas(numero_opciones_categoria,1))):
-            print("Regresar al menu principal")
-            input("")
+        if opcion == str(len(opcionesCorrectas(numero_opciones_categoria,0))):
+            print ("Hola")
             system('cls')
-        elif opcion == str(len(opcionesCorrectas(numero_opciones_categoria,0))):
-            print ("Hasta luego...")
         elif opcion in opcionesCorrectas(numero_opciones_categoria,2):
             ruta_categoria_seleccionada = Path(ruta, categorias[opcion])
             recetas = ListarRecetas(ruta_categoria_seleccionada)
-            print (f"Estas son las recetas que tiene la categoría {ruta_categoria_seleccionada.name.upper()}")
+            system('cls')
+            print (f"Estas son las recetas que tiene la categoría {ruta_categoria_seleccionada.name.upper()}\n")
             imprimir_menu_opciones(recetas)
             opcion = input("\nSeleccione una opción: ")
             numero_opciones_recetas = len(recetas)
             if opcion in opcionesCorrectas(numero_opciones_recetas,0):
-                leerReceta(ruta_categoria_seleccionada,recetas[opcion])
+                imprimirReceta(ruta_categoria_seleccionada,recetas[opcion])
+                input("")
             else:
                 print ("Opción incorrecta")
-                
-            input("")
-            system('cls')
+                input("")
+                system('cls')
         else:
             print ("Opcion Incorrecta")
             input("")
             system('cls')
+        
+        system('cls')
