@@ -2,6 +2,13 @@ from pathlib import Path
 from os import system
 from sysconfig import sys
 
+#Devuelve una lista con las opciones que el usuario tiene disponible a seleccionar.
+def opcionesCorrectas(lista,n):
+    opcioncorrecta = []
+    for op in range(lista-n):
+        opcioncorrecta.append(str(op+1))
+    return opcioncorrecta
+
 def PlataformaSistemaOperativo():
     if sys.platform.startswith('win32'):
         return ('Windows')

@@ -2,13 +2,6 @@ from pathlib import Path
 from os import system
 from funciones_locales.funciones import *
 
-#Devuelve una lista con las opciones que el usuario tiene disponible a seleccionar.
-def opcionesCorrectas(lista,n):
-    opcioncorrecta = []
-    for op in range(lista-n):
-        opcioncorrecta.append(str(op+1))
-    return opcioncorrecta
-
 def LeerRecetas():
     LimpiarPantalla()
     print ("\n CATEGORIA DE RECETAS \n")
@@ -31,7 +24,7 @@ def LeerRecetas():
         if opcion == str(len(opcionesCorrectas(numero_opciones_categoria,0))):
             print ("Hola")
             LimpiarPantalla()
-        elif opcion in opcionesCorrectas(numero_opciones_categoria,2):
+        elif opcion in opcionesCorrectas(numero_opciones_categoria,1):
             ruta_categoria_seleccionada = Path(ruta, categorias[opcion])
             recetas = ListarRecetas(ruta_categoria_seleccionada)
             LimpiarPantalla()
