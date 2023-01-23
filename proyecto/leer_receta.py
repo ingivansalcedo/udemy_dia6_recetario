@@ -22,7 +22,6 @@ def LeerRecetas():
         #Funcion para imprimir lista de recetas de la carpeta seleccionada y 
         
         if opcion == str(len(opcionesCorrectas(numero_opciones_categoria,0))):
-            print ("Hola")
             LimpiarPantalla()
         elif opcion in opcionesCorrectas(numero_opciones_categoria,1):
             ruta_categoria_seleccionada = Path(ruta, categorias[opcion])
