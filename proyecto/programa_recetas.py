@@ -2,6 +2,8 @@ from pathlib import Path
 from os import system
 from funciones_locales.funciones import *
 from leer_receta import LeerRecetas
+from crear_receta import CrearReceta
+
 
 def saludo_bienvenida():
     print ('Bienvenid@ al administrador de Recetas')
@@ -14,7 +16,7 @@ def menu(opcion):
         case '1':
             LeerRecetas()
         case '2':
-            print("Opcion 2")
+            CrearReceta()
         case '3':
             print("Opcion 3")
         case '4':

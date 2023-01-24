@@ -4,7 +4,6 @@ from funciones_locales.funciones import *
 
 def LeerRecetas():
     LimpiarPantalla()
-    print ("\n CATEGORIA DE RECETAS \n")
     opcion = None
     ruta = ruta_acceso()
     categorias = ListarCategorias(ruta)
@@ -16,7 +15,7 @@ def LeerRecetas():
     # print(len(opcionesCorrectas(numero_opciones_categoria,0)))
 
     while opcion != str(len(opcionesCorrectas(numero_opciones_categoria,0))):
-
+        print ("\n CATEGORIA DE RECETAS \n")
         imprimir_menu_opciones(categorias)
         opcion = input("\nSeleccione una opción: ")
         #Funcion para imprimir lista de recetas de la carpeta seleccionada y 
