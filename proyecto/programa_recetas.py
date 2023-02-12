@@ -4,11 +4,13 @@ from funciones_locales.funciones import *
 from leer_receta import LeerRecetas
 from crear_receta import CrearReceta
 from crear_categoria import CrearCategoria
+from eliminar_categoria import EliminarCategoria
 
 
 def saludo_bienvenida():
     print ('Bienvenid@ al administrador de Recetas')
     print (f"Ruta de acceso a sus recetas: {ruta_acceso()}")
+    print (f"Esta actual: {Path.cwd()}")
     print (f"Cantidad de recetas: {numero_recetas(ruta_acceso())}")
     print ("Seleccione alguna de las siguientes opciones:\n")
 
@@ -23,7 +25,7 @@ def menu(opcion):
         case '4':
             print("Opcion 4")
         case '5':
-            print("Opcion 5")
+            EliminarCategoria()
         case '6':
             print("Opcion Salir")
         case _:

@@ -10,6 +10,7 @@ def CrearRecetaCategoria(ruta, nombre_receta, contenido_receta):
     archivo = open(nombre_receta,'w') 
     for l in contenido_receta:
         archivo.writelines(l + '\n')
+    archivo.close
 
 def CrearReceta():
     LimpiarPantalla()
@@ -39,4 +40,5 @@ def CrearReceta():
                     break #detenemos el ciclo for
             CrearRecetaCategoria(ruta_categoria_seleccionada, nombre_receta, contenido_receta)
             print ("Receta creada correctamente.")
+            input("")
             break

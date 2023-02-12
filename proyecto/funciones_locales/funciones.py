@@ -1,5 +1,6 @@
 from pathlib import Path
 from os import system
+import os
 from sysconfig import sys
 
 #Devuelve una lista con las opciones que el usuario tiene disponible a seleccionar.
@@ -19,6 +20,7 @@ def ruta_acceso():
     home = Path.home()
     carpeta = 'Recetas'
     ruta = Path(home,carpeta)
+    os.chdir(ruta)
     return ruta
 
 def numero_recetas(ruta):
