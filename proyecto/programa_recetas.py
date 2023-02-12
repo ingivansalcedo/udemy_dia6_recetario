@@ -3,6 +3,7 @@ from os import system
 from funciones_locales.funciones import *
 from leer_receta import LeerRecetas
 from crear_receta import CrearReceta
+from crear_categoria import CrearCategoria
 
 
 def saludo_bienvenida():
@@ -18,7 +19,7 @@ def menu(opcion):
         case '2':
             CrearReceta()
         case '3':
-            print("Opcion 3")
+            CrearCategoria()
         case '4':
             print("Opcion 4")
         case '5':
