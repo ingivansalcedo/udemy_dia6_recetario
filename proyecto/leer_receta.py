@@ -34,7 +34,9 @@ def LeerRecetas():
                 imprimir_menu_opciones(recetas)
                 opcion = input("\nSeleccione una opción: ")
                 numero_opciones_recetas = len(recetas)
-                if opcion in opcionesCorrectas(numero_opciones_recetas,0):
+                if opcion == str(len(opcionesCorrectas(numero_opciones_categoria,0))):
+                    LeerRecetas()
+                elif opcion in opcionesCorrectas(numero_opciones_recetas,1):
                     imprimirReceta(ruta_categoria_seleccionada,recetas[opcion])
                     input("")
                 else:
