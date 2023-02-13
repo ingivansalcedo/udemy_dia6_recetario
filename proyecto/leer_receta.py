@@ -1,5 +1,4 @@
 from pathlib import Path
-from os import system
 from funciones_locales.funciones import *
 
 def LeerRecetas():
@@ -13,7 +12,14 @@ def LeerRecetas():
       
     # print (numero_opciones_categoria)
     # print(len(opcionesCorrectas(numero_opciones_categoria,0)))
+    
 
+    ''' 
+        La línea donde aparece la siguiente instrucción (while y la del if)
+            len(opcionesCorrectas(numero_opciones_categoria,0) 
+        calcula la posición de la ultima opción "Regresar al menu anterior" 
+    
+    '''
     while opcion != str(len(opcionesCorrectas(numero_opciones_categoria,0))):
         print ("\n CATEGORIA DE RECETAS \n")
         imprimir_menu_opciones(categorias)
@@ -34,7 +40,7 @@ def LeerRecetas():
                 imprimir_menu_opciones(recetas)
                 opcion = input("\nSeleccione una opción: ")
                 numero_opciones_recetas = len(recetas)
-                if opcion == str(len(opcionesCorrectas(numero_opciones_categoria,0))):
+                if opcion == str(len(opcionesCorrectas(numero_opciones_recetas,0))):
                     LeerRecetas()
                 elif opcion in opcionesCorrectas(numero_opciones_recetas,1):
                     imprimirReceta(ruta_categoria_seleccionada,recetas[opcion])
@@ -49,3 +55,5 @@ def LeerRecetas():
             LimpiarPantalla()
         
         LimpiarPantalla()
+
+#LeerRecetas()

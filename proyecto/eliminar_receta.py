@@ -29,9 +29,21 @@ def EliminarReceta():
                 input("")
             else:
                 LimpiarPantalla()
+                print (f"ELIMINAR RECETAS")
                 print (f"Estas son las recetas que tiene la categoría {ruta_categoria_seleccionada.name.upper()}\n")
                 imprimir_menu_opciones(recetas)
                 opcion = input("\nSeleccione una opción: ")
-                os.remove(recetas[opcion])
-                print ("Receta eliminada correctamente")
-                input("")
+                numero_opciones_recetas = len(recetas)
+                if opcion == str(len(opcionesCorrectas(numero_opciones_recetas,0))):
+                    EliminarReceta()
+                elif opcion in opcionesCorrectas(numero_opciones_recetas,1):
+                    os.remove(recetas[opcion])
+                    print ("Receta eliminada correctamente")
+                    input("")
+                else:
+                    print ("Opción incorrecta")
+                    input("")
+                    LimpiarPantalla()
+                
+
+#EliminarReceta()

@@ -42,3 +42,5 @@ def CrearReceta():
             print ("Receta creada correctamente.")
             input("")
             break
+
+#CrearReceta()
