@@ -25,18 +25,22 @@ def LeerRecetas():
         elif opcion in opcionesCorrectas(numero_opciones_categoria,1):
             ruta_categoria_seleccionada = Path(ruta, categorias[opcion])
             recetas = ListarRecetas(ruta_categoria_seleccionada)
-            LimpiarPantalla()
-            print (f"Estas son las recetas que tiene la categoría {ruta_categoria_seleccionada.name.upper()}\n")
-            imprimir_menu_opciones(recetas)
-            opcion = input("\nSeleccione una opción: ")
-            numero_opciones_recetas = len(recetas)
-            if opcion in opcionesCorrectas(numero_opciones_recetas,0):
-                imprimirReceta(ruta_categoria_seleccionada,recetas[opcion])
+            if recetas == {} or len(recetas)==1:
+                print ("Carpeta vacía")
                 input("")
             else:
-                print ("Opción incorrecta")
-                input("")
                 LimpiarPantalla()
+                print (f"Estas son las recetas que tiene la categoría {ruta_categoria_seleccionada.name.upper()}\n")
+                imprimir_menu_opciones(recetas)
+                opcion = input("\nSeleccione una opción: ")
+                numero_opciones_recetas = len(recetas)
+                if opcion in opcionesCorrectas(numero_opciones_recetas,0):
+                    imprimirReceta(ruta_categoria_seleccionada,recetas[opcion])
+                    input("")
+                else:
+                    print ("Opción incorrecta")
+                    input("")
+                    LimpiarPantalla()
         else:
             print ("Opcion Incorrecta")
             input("")

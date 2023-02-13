@@ -5,6 +5,7 @@ from leer_receta import LeerRecetas
 from crear_receta import CrearReceta
 from crear_categoria import CrearCategoria
 from eliminar_categoria import EliminarCategoria
+from eliminar_receta import EliminarReceta
 
 
 def saludo_bienvenida():
@@ -23,7 +24,7 @@ def menu(opcion):
         case '3':
             CrearCategoria()
         case '4':
-            print("Opcion 4")
+            EliminarReceta()
         case '5':
             EliminarCategoria()
         case '6':

@@ -39,6 +39,7 @@ def ListarRecetas(ruta):
     for txt in Path(ruta).glob('**/*.txt'):
         contar += 1
         lista_recetas[str(contar)] = txt.name
+    lista_recetas[str(contar+1)] = 'Regresar al menú anterior'
     return lista_recetas
 
 def ListarCategorias(ruta):
